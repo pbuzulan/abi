@@ -1,0 +1,2257 @@
+[
+  {
+    "base": "USDC",
+    "target": "USDT",
+    "coin_id": "usd-coin"
+  },
+  {
+    "base": "BTC",
+    "target": "USDT",
+    "coin_id": "bitcoin"
+  },
+  {
+    "base": "ETH",
+    "target": "USDT",
+    "coin_id": "ethereum"
+  },
+  {
+    "base": "FDUSD",
+    "target": "USDT",
+    "coin_id": "first-digital-usd"
+  },
+  {
+    "base": "SOL",
+    "target": "USDT",
+    "coin_id": "solana"
+  },
+  {
+    "base": "TUSD",
+    "target": "USDT",
+    "coin_id": "true-usd"
+  },
+  {
+    "base": "ARB",
+    "target": "USDT",
+    "coin_id": "arbitrum"
+  },
+  {
+    "base": "XRP",
+    "target": "USDT",
+    "coin_id": "ripple"
+  },
+  {
+    "base": "APT",
+    "target": "USDT",
+    "coin_id": "aptos"
+  },
+  {
+    "base": "BNB",
+    "target": "USDT",
+    "coin_id": "binancecoin"
+  },
+  {
+    "base": "DOGE",
+    "target": "USDT",
+    "coin_id": "dogecoin"
+  },
+  {
+    "base": "SEI",
+    "target": "USDT",
+    "coin_id": "sei-network"
+  },
+  {
+    "base": "MATIC",
+    "target": "USDT",
+    "coin_id": "matic-network"
+  },
+  {
+    "base": "AVAX",
+    "target": "USDT",
+    "coin_id": "avalanche-2"
+  },
+  {
+    "base": "LINK",
+    "target": "USDT",
+    "coin_id": "chainlink"
+  },
+  {
+    "base": "ORDI",
+    "target": "USDT",
+    "coin_id": "ordinals"
+  },
+  {
+    "base": "ADA",
+    "target": "USDT",
+    "coin_id": "cardano"
+  },
+  {
+    "base": "DOT",
+    "target": "USDT",
+    "coin_id": "polkadot"
+  },
+  {
+    "base": "PEOPLE",
+    "target": "USDT",
+    "coin_id": "constitutiondao"
+  },
+  {
+    "base": "LTC",
+    "target": "USDT",
+    "coin_id": "litecoin"
+  },
+  {
+    "base": "OP",
+    "target": "USDT",
+    "coin_id": "optimism"
+  },
+  {
+    "base": "TRX",
+    "target": "USDT",
+    "coin_id": "tron"
+  },
+  {
+    "base": "SUI",
+    "target": "USDT",
+    "coin_id": "sui"
+  },
+  {
+    "base": "ATOM",
+    "target": "USDT",
+    "coin_id": "cosmos"
+  },
+  {
+    "base": "USDP",
+    "target": "USDT",
+    "coin_id": "paxos-standard"
+  },
+  {
+    "base": "TIA",
+    "target": "USDT",
+    "coin_id": "celestia"
+  },
+  {
+    "base": "TRB",
+    "target": "USDT",
+    "coin_id": "tellor"
+  },
+  {
+    "base": "STX",
+    "target": "USDT",
+    "coin_id": "blockstack"
+  },
+  {
+    "base": "RUNE",
+    "target": "USDT",
+    "coin_id": "thorchain"
+  },
+  {
+    "base": "LUNC",
+    "target": "USDT",
+    "coin_id": "terra-luna"
+  },
+  {
+    "base": "NEAR",
+    "target": "USDT",
+    "coin_id": "near"
+  },
+  {
+    "base": "OSMO",
+    "target": "USDT",
+    "coin_id": "osmosis"
+  },
+  {
+    "base": "SKL",
+    "target": "USDT",
+    "coin_id": "skale"
+  },
+  {
+    "base": "FTM",
+    "target": "USDT",
+    "coin_id": "fantom"
+  },
+  {
+    "base": "FIL",
+    "target": "USDT",
+    "coin_id": "filecoin"
+  },
+  {
+    "base": "RNDR",
+    "target": "USDT",
+    "coin_id": "render-token"
+  },
+  {
+    "base": "INJ",
+    "target": "USDT",
+    "coin_id": "injective-protocol"
+  },
+  {
+    "base": "MEME",
+    "target": "USDT",
+    "coin_id": "memecoin-2"
+  },
+  {
+    "base": "BCH",
+    "target": "USDT",
+    "coin_id": "bitcoin-cash"
+  },
+  {
+    "base": "CYBER",
+    "target": "USDT",
+    "coin_id": "cyberconnect"
+  },
+  {
+    "base": "LDO",
+    "target": "USDT",
+    "coin_id": "lido-dao"
+  },
+  {
+    "base": "ICP",
+    "target": "USDT",
+    "coin_id": "internet-computer"
+  },
+  {
+    "base": "SAND",
+    "target": "USDT",
+    "coin_id": "the-sandbox"
+  },
+  {
+    "base": "DYDX",
+    "target": "USDT",
+    "coin_id": "dydx"
+  },
+  {
+    "base": "1000SATS",
+    "target": "USDT",
+    "coin_id": "1000sats-ordinals"
+  },
+  {
+    "base": "POWR",
+    "target": "USDT",
+    "coin_id": "power-ledger"
+  },
+  {
+    "base": "NTRN",
+    "target": "USDT",
+    "coin_id": "neutron-3"
+  },
+  {
+    "base": "FTT",
+    "target": "USDT",
+    "coin_id": "ftx-token"
+  },
+  {
+    "base": "BLUR",
+    "target": "USDT",
+    "coin_id": "blur"
+  },
+  {
+    "base": "GMT",
+    "target": "USDT",
+    "coin_id": "stepn"
+  },
+  {
+    "base": "GALA",
+    "target": "USDT",
+    "coin_id": "gala"
+  },
+  {
+    "base": "WLD",
+    "target": "USDT",
+    "coin_id": "worldcoin-wld"
+  },
+  {
+    "base": "RDNT",
+    "target": "USDT",
+    "coin_id": "radiant-capital"
+  },
+  {
+    "base": "AAVE",
+    "target": "USDT",
+    "coin_id": "aave"
+  },
+  {
+    "base": "MAV",
+    "target": "USDT",
+    "coin_id": "maverick-protocol"
+  },
+  {
+    "base": "FET",
+    "target": "USDT",
+    "coin_id": "fetch-ai"
+  },
+  {
+    "base": "ETC",
+    "target": "USDT",
+    "coin_id": "ethereum-classic"
+  },
+  {
+    "base": "UNI",
+    "target": "USDT",
+    "coin_id": "uniswap"
+  },
+  {
+    "base": "MAGIC",
+    "target": "USDT",
+    "coin_id": "magic"
+  },
+  {
+    "base": "GAS",
+    "target": "USDT",
+    "coin_id": "gas"
+  },
+  {
+    "base": "LUNA",
+    "target": "USDT",
+    "coin_id": "terra-luna-2"
+  },
+  {
+    "base": "MINA",
+    "target": "USDT",
+    "coin_id": "mina-protocol"
+  },
+  {
+    "base": "PENDLE",
+    "target": "USDT",
+    "coin_id": "pendle"
+  },
+  {
+    "base": "SHIB",
+    "target": "USDT",
+    "coin_id": "shiba-inu"
+  },
+  {
+    "base": "MKR",
+    "target": "USDT",
+    "coin_id": "maker"
+  },
+  {
+    "base": "ENS",
+    "target": "USDT",
+    "coin_id": "ethereum-name-service"
+  },
+  {
+    "base": "STG",
+    "target": "USDT",
+    "coin_id": "stargate-finance"
+  },
+  {
+    "base": "FXS",
+    "target": "USDT",
+    "coin_id": "frax-share"
+  },
+  {
+    "base": "IOTX",
+    "target": "USDT",
+    "coin_id": "iotex"
+  },
+  {
+    "base": "STORJ",
+    "target": "USDT",
+    "coin_id": "storj"
+  },
+  {
+    "base": "LOOM",
+    "target": "USDT",
+    "coin_id": "loom-network-new"
+  },
+  {
+    "base": "WOO",
+    "target": "USDT",
+    "coin_id": "woo-network"
+  },
+  {
+    "base": "CFX",
+    "target": "USDT",
+    "coin_id": "conflux-token"
+  },
+  {
+    "base": "COMP",
+    "target": "USDT",
+    "coin_id": "compound-governance-token"
+  },
+  {
+    "base": "GMX",
+    "target": "USDT",
+    "coin_id": "gmx"
+  },
+  {
+    "base": "GRT",
+    "target": "USDT",
+    "coin_id": "the-graph"
+  },
+  {
+    "base": "SSV",
+    "target": "USDT",
+    "coin_id": "ssv-network"
+  },
+  {
+    "base": "1INCH",
+    "target": "USDT",
+    "coin_id": "1inch"
+  },
+  {
+    "base": "ILV",
+    "target": "USDT",
+    "coin_id": "illuvium"
+  },
+  {
+    "base": "SNX",
+    "target": "USDT",
+    "coin_id": "havven"
+  },
+  {
+    "base": "ROSE",
+    "target": "USDT",
+    "coin_id": "oasis-network"
+  },
+  {
+    "base": "ACE",
+    "target": "USDT",
+    "coin_id": "endurance"
+  },
+  {
+    "base": "EGLD",
+    "target": "USDT",
+    "coin_id": "elrond-erd-2"
+  },
+  {
+    "base": "JOE",
+    "target": "USDT",
+    "coin_id": "joe"
+  },
+  {
+    "base": "YFI",
+    "target": "USDT",
+    "coin_id": "yearn-finance"
+  },
+  {
+    "base": "BONK",
+    "target": "USDT",
+    "coin_id": "bonk"
+  },
+  {
+    "base": "USDC",
+    "target": "USDT",
+    "coin_id": "usd-coin"
+  },
+  {
+    "base": "BTC",
+    "target": "USDT",
+    "coin_id": "bitcoin"
+  },
+  {
+    "base": "ETH",
+    "target": "USDT",
+    "coin_id": "ethereum"
+  },
+  {
+    "base": "FDUSD",
+    "target": "USDT",
+    "coin_id": "first-digital-usd"
+  },
+  {
+    "base": "SOL",
+    "target": "USDT",
+    "coin_id": "solana"
+  },
+  {
+    "base": "TUSD",
+    "target": "USDT",
+    "coin_id": "true-usd"
+  },
+  {
+    "base": "ARB",
+    "target": "USDT",
+    "coin_id": "arbitrum"
+  },
+  {
+    "base": "XRP",
+    "target": "USDT",
+    "coin_id": "ripple"
+  },
+  {
+    "base": "APT",
+    "target": "USDT",
+    "coin_id": "aptos"
+  },
+  {
+    "base": "BNB",
+    "target": "USDT",
+    "coin_id": "binancecoin"
+  },
+  {
+    "base": "DOGE",
+    "target": "USDT",
+    "coin_id": "dogecoin"
+  },
+  {
+    "base": "SEI",
+    "target": "USDT",
+    "coin_id": "sei-network"
+  },
+  {
+    "base": "MATIC",
+    "target": "USDT",
+    "coin_id": "matic-network"
+  },
+  {
+    "base": "AVAX",
+    "target": "USDT",
+    "coin_id": "avalanche-2"
+  },
+  {
+    "base": "LINK",
+    "target": "USDT",
+    "coin_id": "chainlink"
+  },
+  {
+    "base": "ORDI",
+    "target": "USDT",
+    "coin_id": "ordinals"
+  },
+  {
+    "base": "ADA",
+    "target": "USDT",
+    "coin_id": "cardano"
+  },
+  {
+    "base": "DOT",
+    "target": "USDT",
+    "coin_id": "polkadot"
+  },
+  {
+    "base": "PEOPLE",
+    "target": "USDT",
+    "coin_id": "constitutiondao"
+  },
+  {
+    "base": "LTC",
+    "target": "USDT",
+    "coin_id": "litecoin"
+  },
+  {
+    "base": "OP",
+    "target": "USDT",
+    "coin_id": "optimism"
+  },
+  {
+    "base": "TRX",
+    "target": "USDT",
+    "coin_id": "tron"
+  },
+  {
+    "base": "SUI",
+    "target": "USDT",
+    "coin_id": "sui"
+  },
+  {
+    "base": "ATOM",
+    "target": "USDT",
+    "coin_id": "cosmos"
+  },
+  {
+    "base": "USDP",
+    "target": "USDT",
+    "coin_id": "paxos-standard"
+  },
+  {
+    "base": "TIA",
+    "target": "USDT",
+    "coin_id": "celestia"
+  },
+  {
+    "base": "TRB",
+    "target": "USDT",
+    "coin_id": "tellor"
+  },
+  {
+    "base": "STX",
+    "target": "USDT",
+    "coin_id": "blockstack"
+  },
+  {
+    "base": "RUNE",
+    "target": "USDT",
+    "coin_id": "thorchain"
+  },
+  {
+    "base": "LUNC",
+    "target": "USDT",
+    "coin_id": "terra-luna"
+  },
+  {
+    "base": "NEAR",
+    "target": "USDT",
+    "coin_id": "near"
+  },
+  {
+    "base": "OSMO",
+    "target": "USDT",
+    "coin_id": "osmosis"
+  },
+  {
+    "base": "SKL",
+    "target": "USDT",
+    "coin_id": "skale"
+  },
+  {
+    "base": "FTM",
+    "target": "USDT",
+    "coin_id": "fantom"
+  },
+  {
+    "base": "FIL",
+    "target": "USDT",
+    "coin_id": "filecoin"
+  },
+  {
+    "base": "RNDR",
+    "target": "USDT",
+    "coin_id": "render-token"
+  },
+  {
+    "base": "INJ",
+    "target": "USDT",
+    "coin_id": "injective-protocol"
+  },
+  {
+    "base": "MEME",
+    "target": "USDT",
+    "coin_id": "memecoin-2"
+  },
+  {
+    "base": "BCH",
+    "target": "USDT",
+    "coin_id": "bitcoin-cash"
+  },
+  {
+    "base": "CYBER",
+    "target": "USDT",
+    "coin_id": "cyberconnect"
+  },
+  {
+    "base": "LDO",
+    "target": "USDT",
+    "coin_id": "lido-dao"
+  },
+  {
+    "base": "ICP",
+    "target": "USDT",
+    "coin_id": "internet-computer"
+  },
+  {
+    "base": "SAND",
+    "target": "USDT",
+    "coin_id": "the-sandbox"
+  },
+  {
+    "base": "DYDX",
+    "target": "USDT",
+    "coin_id": "dydx"
+  },
+  {
+    "base": "1000SATS",
+    "target": "USDT",
+    "coin_id": "1000sats-ordinals"
+  },
+  {
+    "base": "POWR",
+    "target": "USDT",
+    "coin_id": "power-ledger"
+  },
+  {
+    "base": "NTRN",
+    "target": "USDT",
+    "coin_id": "neutron-3"
+  },
+  {
+    "base": "FTT",
+    "target": "USDT",
+    "coin_id": "ftx-token"
+  },
+  {
+    "base": "BLUR",
+    "target": "USDT",
+    "coin_id": "blur"
+  },
+  {
+    "base": "GMT",
+    "target": "USDT",
+    "coin_id": "stepn"
+  },
+  {
+    "base": "GALA",
+    "target": "USDT",
+    "coin_id": "gala"
+  },
+  {
+    "base": "WLD",
+    "target": "USDT",
+    "coin_id": "worldcoin-wld"
+  },
+  {
+    "base": "RDNT",
+    "target": "USDT",
+    "coin_id": "radiant-capital"
+  },
+  {
+    "base": "AAVE",
+    "target": "USDT",
+    "coin_id": "aave"
+  },
+  {
+    "base": "MAV",
+    "target": "USDT",
+    "coin_id": "maverick-protocol"
+  },
+  {
+    "base": "FET",
+    "target": "USDT",
+    "coin_id": "fetch-ai"
+  },
+  {
+    "base": "ETC",
+    "target": "USDT",
+    "coin_id": "ethereum-classic"
+  },
+  {
+    "base": "UNI",
+    "target": "USDT",
+    "coin_id": "uniswap"
+  },
+  {
+    "base": "MAGIC",
+    "target": "USDT",
+    "coin_id": "magic"
+  },
+  {
+    "base": "GAS",
+    "target": "USDT",
+    "coin_id": "gas"
+  },
+  {
+    "base": "LUNA",
+    "target": "USDT",
+    "coin_id": "terra-luna-2"
+  },
+  {
+    "base": "MINA",
+    "target": "USDT",
+    "coin_id": "mina-protocol"
+  },
+  {
+    "base": "PENDLE",
+    "target": "USDT",
+    "coin_id": "pendle"
+  },
+  {
+    "base": "SHIB",
+    "target": "USDT",
+    "coin_id": "shiba-inu"
+  },
+  {
+    "base": "MKR",
+    "target": "USDT",
+    "coin_id": "maker"
+  },
+  {
+    "base": "ENS",
+    "target": "USDT",
+    "coin_id": "ethereum-name-service"
+  },
+  {
+    "base": "STG",
+    "target": "USDT",
+    "coin_id": "stargate-finance"
+  },
+  {
+    "base": "FXS",
+    "target": "USDT",
+    "coin_id": "frax-share"
+  },
+  {
+    "base": "IOTX",
+    "target": "USDT",
+    "coin_id": "iotex"
+  },
+  {
+    "base": "STORJ",
+    "target": "USDT",
+    "coin_id": "storj"
+  },
+  {
+    "base": "LOOM",
+    "target": "USDT",
+    "coin_id": "loom-network-new"
+  },
+  {
+    "base": "WOO",
+    "target": "USDT",
+    "coin_id": "woo-network"
+  },
+  {
+    "base": "CFX",
+    "target": "USDT",
+    "coin_id": "conflux-token"
+  },
+  {
+    "base": "COMP",
+    "target": "USDT",
+    "coin_id": "compound-governance-token"
+  },
+  {
+    "base": "GMX",
+    "target": "USDT",
+    "coin_id": "gmx"
+  },
+  {
+    "base": "GRT",
+    "target": "USDT",
+    "coin_id": "the-graph"
+  },
+  {
+    "base": "SSV",
+    "target": "USDT",
+    "coin_id": "ssv-network"
+  },
+  {
+    "base": "1INCH",
+    "target": "USDT",
+    "coin_id": "1inch"
+  },
+  {
+    "base": "ILV",
+    "target": "USDT",
+    "coin_id": "illuvium"
+  },
+  {
+    "base": "SNX",
+    "target": "USDT",
+    "coin_id": "havven"
+  },
+  {
+    "base": "ROSE",
+    "target": "USDT",
+    "coin_id": "oasis-network"
+  },
+  {
+    "base": "ACE",
+    "target": "USDT",
+    "coin_id": "endurance"
+  },
+  {
+    "base": "EGLD",
+    "target": "USDT",
+    "coin_id": "elrond-erd-2"
+  },
+  {
+    "base": "JOE",
+    "target": "USDT",
+    "coin_id": "joe"
+  },
+  {
+    "base": "YFI",
+    "target": "USDT",
+    "coin_id": "yearn-finance"
+  },
+  {
+    "base": "BONK",
+    "target": "USDT",
+    "coin_id": "bonk"
+  },
+  {
+    "base": "XMR",
+    "target": "USDT",
+    "coin_id": "monero"
+  },
+  {
+    "base": "MANA",
+    "target": "USDT",
+    "coin_id": "decentraland"
+  },
+  {
+    "base": "ALGO",
+    "target": "USDT",
+    "coin_id": "algorand"
+  },
+  {
+    "base": "LINA",
+    "target": "USDT",
+    "coin_id": "linear"
+  },
+  {
+    "base": "MASK",
+    "target": "USDT",
+    "coin_id": "mask-network"
+  },
+  {
+    "base": "JTO",
+    "target": "USDT",
+    "coin_id": "jito-governance-token"
+  },
+  {
+    "base": "KSM",
+    "target": "USDT",
+    "coin_id": "kusama"
+  },
+  {
+    "base": "LRC",
+    "target": "USDT",
+    "coin_id": "loopring"
+  },
+  {
+    "base": "BAKE",
+    "target": "USDT",
+    "coin_id": "bakerytoken"
+  },
+  {
+    "base": "C98",
+    "target": "USDT",
+    "coin_id": "coin98"
+  },
+  {
+    "base": "ASTR",
+    "target": "USDT",
+    "coin_id": "astar"
+  },
+  {
+    "base": "AR",
+    "target": "USDT",
+    "coin_id": "arweave"
+  },
+  {
+    "base": "PHB",
+    "target": "USDT",
+    "coin_id": "phoenix-global"
+  },
+  {
+    "base": "APE",
+    "target": "USDT",
+    "coin_id": "apecoin"
+  },
+  {
+    "base": "BAL",
+    "target": "USDT",
+    "coin_id": "balancer"
+  },
+  {
+    "base": "XVG",
+    "target": "USDT",
+    "coin_id": "verge"
+  },
+  {
+    "base": "AUCTION",
+    "target": "USDT",
+    "coin_id": "auction"
+  },
+  {
+    "base": "KAVA",
+    "target": "USDT",
+    "coin_id": "kava"
+  },
+  {
+    "base": "IOTA",
+    "target": "USDT",
+    "coin_id": "iota"
+  },
+  {
+    "base": "PERP",
+    "target": "USDT",
+    "coin_id": "perpetual-protocol"
+  },
+  {
+    "base": "XLM",
+    "target": "USDT",
+    "coin_id": "stellar"
+  },
+  {
+    "base": "BEAMX",
+    "target": "USDT",
+    "coin_id": "beam-2"
+  },
+  {
+    "base": "ARPA",
+    "target": "USDT",
+    "coin_id": "arpa"
+  },
+  {
+    "base": "CAKE",
+    "target": "USDT",
+    "coin_id": "pancakeswap-token"
+  },
+  {
+    "base": "CRV",
+    "target": "USDT",
+    "coin_id": "curve-dao-token"
+  },
+  {
+    "base": "AGIX",
+    "target": "USDT",
+    "coin_id": "singularitynet"
+  },
+  {
+    "base": "CHR",
+    "target": "USDT",
+    "coin_id": "chromaway"
+  },
+  {
+    "base": "ID",
+    "target": "USDT",
+    "coin_id": "space-id"
+  },
+  {
+    "base": "SUSHI",
+    "target": "USDT",
+    "coin_id": "sushi"
+  },
+  {
+    "base": "JASMY",
+    "target": "USDT",
+    "coin_id": "jasmycoin"
+  },
+  {
+    "base": "REN",
+    "target": "USDT",
+    "coin_id": "republic-protocol"
+  },
+  {
+    "base": "NEO",
+    "target": "USDT",
+    "coin_id": "neo"
+  },
+  {
+    "base": "YGG",
+    "target": "USDT",
+    "coin_id": "yield-guild-games"
+  },
+  {
+    "base": "ZEC",
+    "target": "USDT",
+    "coin_id": "zcash"
+  },
+  {
+    "base": "STRAX",
+    "target": "USDT",
+    "coin_id": "stratis"
+  },
+  {
+    "base": "EOS",
+    "target": "USDT",
+    "coin_id": "eos"
+  },
+  {
+    "base": "BADGER",
+    "target": "USDT",
+    "coin_id": "badger-dao"
+  },
+  {
+    "base": "HBAR",
+    "target": "USDT",
+    "coin_id": "hedera-hashgraph"
+  },
+  {
+    "base": "USTC",
+    "target": "USDT",
+    "coin_id": "terrausd"
+  },
+  {
+    "base": "BETA",
+    "target": "USDT",
+    "coin_id": "beta-finance"
+  },
+  {
+    "base": "SFP",
+    "target": "USDT",
+    "coin_id": "safepal"
+  },
+  {
+    "base": "ELF",
+    "target": "USDT",
+    "coin_id": "aelf"
+  },
+  {
+    "base": "DASH",
+    "target": "USDT",
+    "coin_id": "dash"
+  },
+  {
+    "base": "IMX",
+    "target": "USDT",
+    "coin_id": "immutable-x"
+  },
+  {
+    "base": "RAY",
+    "target": "USDT",
+    "coin_id": "raydium"
+  },
+  {
+    "base": "HOOK",
+    "target": "USDT",
+    "coin_id": "hooked-protocol"
+  },
+  {
+    "base": "FIDA",
+    "target": "USDT",
+    "coin_id": "bonfida"
+  },
+  {
+    "base": "POLYX",
+    "target": "USDT",
+    "coin_id": "polymesh"
+  },
+  {
+    "base": "BNX",
+    "target": "USDT",
+    "coin_id": "binaryx-2"
+  },
+  {
+    "base": "VET",
+    "target": "USDT",
+    "coin_id": "vechain"
+  },
+  {
+    "base": "KP3R",
+    "target": "USDT",
+    "coin_id": "keep3rv1"
+  },
+  {
+    "base": "FLOKI",
+    "target": "USDT",
+    "coin_id": "floki"
+  },
+  {
+    "base": "FOR",
+    "target": "USDT",
+    "coin_id": "force-protocol"
+  },
+  {
+    "base": "UNFI",
+    "target": "USDT",
+    "coin_id": "unifi-protocol-dao"
+  },
+  {
+    "base": "OGN",
+    "target": "USDT",
+    "coin_id": "origin-protocol"
+  },
+  {
+    "base": "ANKR",
+    "target": "USDT",
+    "coin_id": "ankr"
+  },
+  {
+    "base": "FLOW",
+    "target": "USDT",
+    "coin_id": "flow"
+  },
+  {
+    "base": "STMX",
+    "target": "USDT",
+    "coin_id": "storm"
+  },
+  {
+    "base": "AXS",
+    "target": "USDT",
+    "coin_id": "axie-infinity"
+  },
+  {
+    "base": "SUPER",
+    "target": "USDT",
+    "coin_id": "superfarm"
+  },
+  {
+    "base": "GAL",
+    "target": "USDT",
+    "coin_id": "project-galaxy"
+  },
+  {
+    "base": "BLZ",
+    "target": "USDT",
+    "coin_id": "bluzelle"
+  },
+  {
+    "base": "COTI",
+    "target": "USDT",
+    "coin_id": "coti"
+  },
+  {
+    "base": "ARKM",
+    "target": "USDT",
+    "coin_id": "arkham"
+  },
+  {
+    "base": "ERN",
+    "target": "USDT",
+    "coin_id": "ethernity-chain"
+  },
+  {
+    "base": "OCEAN",
+    "target": "USDT",
+    "coin_id": "ocean-protocol"
+  },
+  {
+    "base": "ANT",
+    "target": "USDT",
+    "coin_id": "aragon"
+  },
+  {
+    "base": "SLP",
+    "target": "USDT",
+    "coin_id": "smooth-love-potion"
+  },
+  {
+    "base": "BEL",
+    "target": "USDT",
+    "coin_id": "bella-protocol"
+  },
+  {
+    "base": "REEF",
+    "target": "USDT",
+    "coin_id": "reef"
+  },
+  {
+    "base": "QNT",
+    "target": "USDT",
+    "coin_id": "quant-network"
+  },
+  {
+    "base": "DUSK",
+    "target": "USDT",
+    "coin_id": "dusk-network"
+  },
+  {
+    "base": "T",
+    "target": "USDT",
+    "coin_id": "threshold-network-token"
+  },
+  {
+    "base": "DATA",
+    "target": "USDT",
+    "coin_id": "streamr"
+  },
+  {
+    "base": "KLAY",
+    "target": "USDT",
+    "coin_id": "klay-token"
+  },
+  {
+    "base": "CTSI",
+    "target": "USDT",
+    "coin_id": "cartesi"
+  },
+  {
+    "base": "ICX",
+    "target": "USDT",
+    "coin_id": "icon"
+  },
+  {
+    "base": "SXP",
+    "target": "USDT",
+    "coin_id": "swipe"
+  },
+  {
+    "base": "ICX",
+    "target": "USDT",
+    "coin_id": "icon"
+  },
+  {
+    "base": "BEL",
+    "target": "USDT",
+    "coin_id": "bella-protocol"
+  },
+  {
+    "base": "GAL",
+    "target": "USDT",
+    "coin_id": "project-galaxy"
+  },
+  {
+    "base": "SXP",
+    "target": "USDT",
+    "coin_id": "swipe"
+  },
+  {
+    "base": "RLC",
+    "target": "USDT",
+    "coin_id": "iexec-rlc"
+  },
+  {
+    "base": "BURGER",
+    "target": "USDT",
+    "coin_id": "burger-swap"
+  },
+  {
+    "base": "CKB",
+    "target": "USDT",
+    "coin_id": "nervos-network"
+  },
+  {
+    "base": "THETA",
+    "target": "USDT",
+    "coin_id": "theta-token"
+  },
+  {
+    "base": "PAXG",
+    "target": "USDT",
+    "coin_id": "pax-gold"
+  },
+  {
+    "base": "NFP",
+    "target": "USDT",
+    "coin_id": "nfprompt-token"
+  },
+  {
+    "base": "AUDIO",
+    "target": "USDT",
+    "coin_id": "audius"
+  },
+  {
+    "base": "ACH",
+    "target": "USDT",
+    "coin_id": "alchemy-pay"
+  },
+  {
+    "base": "PEPE",
+    "target": "USDT",
+    "coin_id": "pepe"
+  },
+  {
+    "base": "ZIL",
+    "target": "USDT",
+    "coin_id": "zilliqa"
+  },
+  {
+    "base": "ONE",
+    "target": "USDT",
+    "coin_id": "harmony"
+  },
+  {
+    "base": "GLMR",
+    "target": "USDT",
+    "coin_id": "moonbeam"
+  },
+  {
+    "base": "FRONT",
+    "target": "USDT",
+    "coin_id": "frontier-token"
+  },
+  {
+    "base": "CELO",
+    "target": "USDT",
+    "coin_id": "celo"
+  },
+  {
+    "base": "LEVER",
+    "target": "USDT",
+    "coin_id": "lever"
+  },
+  {
+    "base": "ZRX",
+    "target": "USDT",
+    "coin_id": "0x"
+  },
+  {
+    "base": "EDU",
+    "target": "USDT",
+    "coin_id": "edu-coin"
+  },
+  {
+    "base": "OXT",
+    "target": "USDT",
+    "coin_id": "orchid-protocol"
+  },
+  {
+    "base": "QTUM",
+    "target": "USDT",
+    "coin_id": "qtum"
+  },
+  {
+    "base": "API3",
+    "target": "USDT",
+    "coin_id": "api3"
+  },
+  {
+    "base": "OG",
+    "target": "USDT",
+    "coin_id": "og-fan-token"
+  },
+  {
+    "base": "FARM",
+    "target": "USDT",
+    "coin_id": "harvest-finance"
+  },
+  {
+    "base": "REI",
+    "target": "USDT",
+    "coin_id": "rei-network"
+  },
+  {
+    "base": "HIGH",
+    "target": "USDT",
+    "coin_id": "highstreet"
+  },
+  {
+    "base": "LIT",
+    "target": "USDT",
+    "coin_id": "litentry"
+  },
+  {
+    "base": "ENJ",
+    "target": "USDT",
+    "coin_id": "enjincoin"
+  },
+  {
+    "base": "DAR",
+    "target": "USDT",
+    "coin_id": "mines-of-dalarnia"
+  },
+  {
+    "base": "ORN",
+    "target": "USDT",
+    "coin_id": "orion-protocol"
+  },
+  {
+    "base": "CLV",
+    "target": "USDT",
+    "coin_id": "clover-finance"
+  },
+  {
+    "base": "HFT",
+    "target": "USDT",
+    "coin_id": "hashflow"
+  },
+  {
+    "base": "LAZIO",
+    "target": "USDT",
+    "coin_id": "lazio-fan-token"
+  },
+  {
+    "base": "HOT",
+    "target": "USDT",
+    "coin_id": "holotoken"
+  },
+  {
+    "base": "BAR",
+    "target": "USDT",
+    "coin_id": "fc-barcelona-fan-token"
+  },
+  {
+    "base": "FUN",
+    "target": "USDT",
+    "coin_id": "funfair"
+  },
+  {
+    "base": "STPT",
+    "target": "USDT",
+    "coin_id": "stp-network"
+  },
+  {
+    "base": "OOKI",
+    "target": "USDT",
+    "coin_id": "ooki"
+  },
+  {
+    "base": "BOND",
+    "target": "USDT",
+    "coin_id": "barnbridge"
+  },
+  {
+    "base": "DEXE",
+    "target": "USDT",
+    "coin_id": "dexe"
+  },
+  {
+    "base": "ALPACA",
+    "target": "USDT",
+    "coin_id": "alpaca-finance"
+  },
+  {
+    "base": "FIDA",
+    "target": "USDT",
+    "coin_id": "bonfida"
+  },
+  {
+    "base": "CTSI",
+    "target": "USDT",
+    "coin_id": "cartesi"
+  },
+  {
+    "base": "XEM",
+    "target": "USDT",
+    "coin_id": "nem"
+  },
+  {
+    "base": "MDT",
+    "target": "USDT",
+    "coin_id": "measurable-data-token"
+  },
+  {
+    "base": "AGLD",
+    "target": "USDT",
+    "coin_id": "adventure-gold"
+  },
+  {
+    "base": "CELR",
+    "target": "USDT",
+    "coin_id": "celer-network"
+  },
+  {
+    "base": "ZEN",
+    "target": "USDT",
+    "coin_id": "zencash"
+  },
+  {
+    "base": "FIS",
+    "target": "USDT",
+    "coin_id": "stafi"
+  },
+  {
+    "base": "LPT",
+    "target": "USDT",
+    "coin_id": "livepeer"
+  },
+  {
+    "base": "ALICE",
+    "target": "USDT",
+    "coin_id": "my-neighbor-alice"
+  },
+  {
+    "base": "SCRT",
+    "target": "USDT",
+    "coin_id": "secret"
+  },
+  {
+    "base": "RIF",
+    "target": "USDT",
+    "coin_id": "rif-token"
+  },
+  {
+    "base": "ALPHA",
+    "target": "USDT",
+    "coin_id": "alpha-finance"
+  },
+  {
+    "base": "TLM",
+    "target": "USDT",
+    "coin_id": "alien-worlds"
+  },
+  {
+    "base": "SNT",
+    "target": "USDT",
+    "coin_id": "status"
+  },
+  {
+    "base": "FLM",
+    "target": "USDT",
+    "coin_id": "flamingo-finance"
+  },
+  {
+    "base": "TRU",
+    "target": "USDT",
+    "coin_id": "truefi"
+  },
+  {
+    "base": "TFUEL",
+    "target": "USDT",
+    "coin_id": "theta-fuel"
+  },
+  {
+    "base": "ATA",
+    "target": "USDT",
+    "coin_id": "automata"
+  },
+  {
+    "base": "SC",
+    "target": "USDT",
+    "coin_id": "siacoin"
+  },
+  {
+    "base": "RAD",
+    "target": "USDT",
+    "coin_id": "radicle"
+  },
+  {
+    "base": "KNC",
+    "target": "USDT",
+    "coin_id": "kyber-network-crystal"
+  },
+  {
+    "base": "XTZ",
+    "target": "USDT",
+    "coin_id": "tezos"
+  },
+  {
+    "base": "SPELL",
+    "target": "USDT",
+    "coin_id": "spell-token"
+  },
+  {
+    "base": "IOST",
+    "target": "USDT",
+    "coin_id": "iostoken"
+  },
+  {
+    "base": "VIB",
+    "target": "USDT",
+    "coin_id": "viberate"
+  },
+  {
+    "base": "CVX",
+    "target": "USDT",
+    "coin_id": "convex-finance"
+  },
+  {
+    "base": "DREP",
+    "target": "USDT",
+    "coin_id": "drep-new"
+  },
+  {
+    "base": "FIRO",
+    "target": "USDT",
+    "coin_id": "zcoin"
+  },
+  {
+    "base": "FIRO",
+    "target": "USDT",
+    "coin_id": "zcoin"
+  },
+  {
+    "base": "MLN",
+    "target": "USDT",
+    "coin_id": "melon"
+  },
+  {
+    "base": "XEC",
+    "target": "USDT",
+    "coin_id": "ecash"
+  },
+  {
+    "base": "KEY",
+    "target": "USDT",
+    "coin_id": "selfkey"
+  },
+  {
+    "base": "RSR",
+    "target": "USDT",
+    "coin_id": "reserve-rights-token"
+  },
+  {
+    "base": "WBTC",
+    "target": "USDT",
+    "coin_id": "wrapped-bitcoin"
+  },
+  {
+    "base": "JST",
+    "target": "USDT",
+    "coin_id": "just"
+  },
+  {
+    "base": "IDEX",
+    "target": "USDT",
+    "coin_id": "aurora-dao"
+  },
+  {
+    "base": "QI",
+    "target": "USDT",
+    "coin_id": "benqi"
+  },
+  {
+    "base": "BAND",
+    "target": "USDT",
+    "coin_id": "band-protocol"
+  },
+  {
+    "base": "DODO",
+    "target": "USDT",
+    "coin_id": "dodo"
+  },
+  {
+    "base": "ONT",
+    "target": "USDT",
+    "coin_id": "ontology"
+  },
+  {
+    "base": "KDA",
+    "target": "USDT",
+    "coin_id": "kadena"
+  },
+  {
+    "base": "MTL",
+    "target": "USDT",
+    "coin_id": "metal"
+  },
+  {
+    "base": "GFT",
+    "target": "USDT",
+    "coin_id": "gifto"
+  },
+  {
+    "base": "GTC",
+    "target": "USDT",
+    "coin_id": "gitcoin"
+  },
+  {
+    "base": "PHA",
+    "target": "USDT",
+    "coin_id": "pha"
+  },
+  {
+    "base": "DF",
+    "target": "USDT",
+    "coin_id": "dforce-token"
+  },
+  {
+    "base": "WRX",
+    "target": "USDT",
+    "coin_id": "wazirx"
+  },
+  {
+    "base": "CTXC",
+    "target": "USDT",
+    "coin_id": "cortex"
+  },
+  {
+    "base": "QKC",
+    "target": "USDT",
+    "coin_id": "quark-chain"
+  },
+  {
+    "base": "JUV",
+    "target": "USDT",
+    "coin_id": "juventus-fan-token"
+  },
+  {
+    "base": "BAT",
+    "target": "USDT",
+    "coin_id": "basic-attention-token"
+  },
+  {
+    "base": "AGLD",
+    "target": "USDT",
+    "coin_id": "adventure-gold"
+  },
+  {
+    "base": "COMBO",
+    "target": "USDT",
+    "coin_id": "cocos-bcx"
+  },
+  {
+    "base": "ALCX",
+    "target": "USDT",
+    "coin_id": "alchemix"
+  },
+  {
+    "base": "STEEM",
+    "target": "USDT",
+    "coin_id": "steem"
+  },
+  {
+    "base": "PYR",
+    "target": "USDT",
+    "coin_id": "vulcan-forged"
+  },
+  {
+    "base": "FLUX",
+    "target": "USDT",
+    "coin_id": "zelcash"
+  },
+  {
+    "base": "MBOX",
+    "target": "USDT",
+    "coin_id": "mobox"
+  },
+  {
+    "base": "RVN",
+    "target": "USDT",
+    "coin_id": "ravencoin"
+  },
+  {
+    "base": "PORTO",
+    "target": "USDT",
+    "coin_id": "fc-porto"
+  },
+  {
+    "base": "PNT",
+    "target": "USDT",
+    "coin_id": "pnetwork"
+  },
+  {
+    "base": "ASR",
+    "target": "USDT",
+    "coin_id": "as-roma-fan-token"
+  },
+  {
+    "base": "OMG",
+    "target": "USDT",
+    "coin_id": "omisego"
+  },
+  {
+    "base": "RPL",
+    "target": "USDT",
+    "coin_id": "rocket-pool"
+  },
+  {
+    "base": "GHST",
+    "target": "USDT",
+    "coin_id": "aavegotchi"
+  },
+  {
+    "base": "MBL",
+    "target": "USDT",
+    "coin_id": "moviebloc"
+  },
+  {
+    "base": "NKN",
+    "target": "USDT",
+    "coin_id": "nkn"
+  },
+  {
+    "base": "VOXEL",
+    "target": "USDT",
+    "coin_id": "voxies"
+  },
+  {
+    "base": "VIDT",
+    "target": "USDT",
+    "coin_id": "vidt-dao"
+  },
+  {
+    "base": "PSG",
+    "target": "USDT",
+    "coin_id": "paris-saint-germain-fan-token"
+  },
+  {
+    "base": "ALPINE",
+    "target": "USDT",
+    "coin_id": "alpine-f1-team-fan-token"
+  },
+  {
+    "base": "ONG",
+    "target": "USDT",
+    "coin_id": "ong"
+  },
+  {
+    "base": "CITY",
+    "target": "USDT",
+    "coin_id": "manchester-city-fan-token"
+  },
+  {
+    "base": "AMB",
+    "target": "USDT",
+    "coin_id": "amber"
+  },
+  {
+    "base": "TROY",
+    "target": "USDT",
+    "coin_id": "troy"
+  },
+  {
+    "base": "LOKA",
+    "target": "USDT",
+    "coin_id": "league-of-kingdoms"
+  },
+  {
+    "base": "ARDR",
+    "target": "USDT",
+    "coin_id": "ardor"
+  },
+  {
+    "base": "HARD",
+    "target": "USDT",
+    "coin_id": "kava-lend"
+  },
+  {
+    "base": "BSW",
+    "target": "USDT",
+    "coin_id": "biswap"
+  },
+  {
+    "base": "COS",
+    "target": "USDT",
+    "coin_id": "contentos"
+  },
+  {
+    "base": "DGB",
+    "target": "USDT",
+    "coin_id": "digibyte"
+  },
+  {
+    "base": "UMA",
+    "target": "USDT",
+    "coin_id": "uma"
+  },
+  {
+    "base": "DEGO",
+    "target": "USDT",
+    "coin_id": "dego-finance"
+  },
+  {
+    "base": "PROS",
+    "target": "USDT",
+    "coin_id": "prosper"
+  },
+  {
+    "base": "QUICK",
+    "target": "USDT",
+    "coin_id": "quickswap"
+  },
+  {
+    "base": "DIA",
+    "target": "USDT",
+    "coin_id": "dia-data"
+  },
+  {
+    "base": "NMR",
+    "target": "USDT",
+    "coin_id": "numeraire"
+  },
+  {
+    "base": "VITE",
+    "target": "USDT",
+    "coin_id": "vite"
+  },
+  {
+    "base": "VIC",
+    "target": "USDT",
+    "coin_id": "tomochain"
+  },
+  {
+    "base": "SYN",
+    "target": "USDT",
+    "coin_id": "synapse-2"
+  },
+  {
+    "base": "WAXP",
+    "target": "USDT",
+    "coin_id": "wax"
+  },
+  {
+    "base": "TKO",
+    "target": "USDT",
+    "coin_id": "tokocrypto"
+  },
+  {
+    "base": "NEXO",
+    "target": "USDT",
+    "coin_id": "nexo"
+  },
+  {
+    "base": "NULS",
+    "target": "USDT",
+    "coin_id": "nuls"
+  },
+  {
+    "base": "ACM",
+    "target": "USDT",
+    "coin_id": "ac-milan-fan-token"
+  },
+  {
+    "base": "DENT",
+    "target": "USDT",
+    "coin_id": "dent"
+  },
+  {
+    "base": "WIN",
+    "target": "USDT",
+    "coin_id": "wink"
+  },
+  {
+    "base": "EPX",
+    "target": "USDT",
+    "coin_id": "ellipsis-x"
+  },
+  {
+    "base": "IRIS",
+    "target": "USDT",
+    "coin_id": "iris-network"
+  },
+  {
+    "base": "OOKI",
+    "target": "USDT",
+    "coin_id": "ooki"
+  },
+  {
+    "base": "ETHDOWN",
+    "target": "USDT",
+    "coin_id": "ethdown"
+  },
+  {
+    "base": "HIVE",
+    "target": "USDT",
+    "coin_id": "hive"
+  },
+  {
+    "base": "CTK",
+    "target": "USDT",
+    "coin_id": "certik"
+  },
+  {
+    "base": "VANRY",
+    "target": "USDT",
+    "coin_id": "vanar-chain"
+  },
+  {
+    "base": "REQ",
+    "target": "USDT",
+    "coin_id": "request-network"
+  },
+  {
+    "base": "AKRO",
+    "target": "USDT",
+    "coin_id": "akropolis"
+  },
+  {
+    "base": "AMP",
+    "target": "USDT",
+    "coin_id": "amp-token"
+  },
+  {
+    "base": "AERGO",
+    "target": "USDT",
+    "coin_id": "aergo"
+  },
+  {
+    "base": "BIFI",
+    "target": "USDT",
+    "coin_id": "beefy-finance"
+  },
+  {
+    "base": "POND",
+    "target": "USDT",
+    "coin_id": "marlin"
+  },
+  {
+    "base": "ACA",
+    "target": "USDT",
+    "coin_id": "acala"
+  },
+  {
+    "base": "UFT",
+    "target": "USDT",
+    "coin_id": "unlend-finance"
+  },
+  {
+    "base": "CHESS",
+    "target": "USDT",
+    "coin_id": "tranchess"
+  },
+  {
+    "base": "DOCK",
+    "target": "USDT",
+    "coin_id": "dock"
+  },
+  {
+    "base": "ATM",
+    "target": "USDT",
+    "coin_id": "atletico-madrid"
+  },
+  {
+    "base": "WBETH",
+    "target": "USDT",
+    "coin_id": "wrapped-beacon-eth"
+  },
+  {
+    "base": "SANTOS",
+    "target": "USDT",
+    "coin_id": "santos-fc-fan-token"
+  },
+  {
+    "base": "OAX",
+    "target": "USDT",
+    "coin_id": "openanx"
+  },
+  {
+    "base": "AST",
+    "target": "USDT",
+    "coin_id": "airswap"
+  },
+  {
+    "base": "PROM",
+    "target": "USDT",
+    "coin_id": "prometeus"
+  },
+  {
+    "base": "PLA",
+    "target": "USDT",
+    "coin_id": "playdapp"
+  },
+  {
+    "base": "VTHO",
+    "target": "USDT",
+    "coin_id": "vethor-token"
+  },
+  {
+    "base": "LTO",
+    "target": "USDT",
+    "coin_id": "lto-network"
+  },
+  {
+    "base": "VGX",
+    "target": "USDT",
+    "coin_id": "ethos"
+  },
+  {
+    "base": "WNXM",
+    "target": "USDT",
+    "coin_id": "wrapped-nxm"
+  },
+  {
+    "base": "CVC",
+    "target": "USDT",
+    "coin_id": "civic"
+  },
+  {
+    "base": "ADX",
+    "target": "USDT",
+    "coin_id": "adex"
+  },
+  {
+    "base": "UTK",
+    "target": "USDT",
+    "coin_id": "utrust"
+  },
+  {
+    "base": "LSK",
+    "target": "USDT",
+    "coin_id": "lisk"
+  },
+  {
+    "base": "AVA",
+    "target": "USDT",
+    "coin_id": "concierge-io"
+  },
+  {
+    "base": "MDX",
+    "target": "USDT",
+    "coin_id": "mdex-bsc"
+  },
+  {
+    "base": "MOB",
+    "target": "USDT",
+    "coin_id": "mobilecoin"
+  },
+  {
+    "base": "SUN",
+    "target": "USDT",
+    "coin_id": "sun-token"
+  },
+  {
+    "base": "FIO",
+    "target": "USDT",
+    "coin_id": "fio-protocol"
+  },
+  {
+    "base": "RARE",
+    "target": "USDT",
+    "coin_id": "superrare"
+  },
+  {
+    "base": "FORTH",
+    "target": "USDT",
+    "coin_id": "ampleforth-governance-token"
+  },
+  {
+    "base": "PIVX",
+    "target": "USDT",
+    "coin_id": "pivx"
+  },
+  {
+    "base": "GLM",
+    "target": "USDT",
+    "coin_id": "golem"
+  },
+  {
+    "base": "CVP",
+    "target": "USDT",
+    "coin_id": "concentrated-voting-power"
+  },
+  {
+    "base": "KMD",
+    "target": "USDT",
+    "coin_id": "komodo"
+  },
+  {
+    "base": "GNO",
+    "target": "USDT",
+    "coin_id": "gnosis"
+  },
+  {
+    "base": "PUNDIX",
+    "target": "USDT",
+    "coin_id": "pundi-x-2"
+  },
+  {
+    "base": "DCR",
+    "target": "USDT",
+    "coin_id": "decred"
+  },
+  {
+    "base": "XNO",
+    "target": "USDT",
+    "coin_id": "nano"
+  },
+  {
+    "base": "ETHUP",
+    "target": "USDT",
+    "coin_id": "ethup"
+  },
+  {
+    "base": "SYS",
+    "target": "USDT",
+    "coin_id": "syscoin"
+  },
+  {
+    "base": "POLS",
+    "target": "USDT",
+    "coin_id": "polkastarter"
+  },
+  {
+    "base": "CREAM",
+    "target": "USDT",
+    "coin_id": "cream-2"
+  },
+  {
+    "base": "IQ",
+    "target": "USDT",
+    "coin_id": "everipedia"
+  },
+  {
+    "base": "WAN",
+    "target": "USDT",
+    "coin_id": "wanchain"
+  },
+  {
+    "base": "AI",
+    "target": "USDT",
+    "coin_id": "sleepless-ai"
+  },
+  {
+    "base": "OM",
+    "target": "USDT",
+    "coin_id": "mantra-dao"
+  },
+  {
+    "base": "BTTC",
+    "target": "USDT",
+    "coin_id": "bittorrent"
+  },
+  {
+    "base": "MOVR",
+    "target": "USDT",
+    "coin_id": "moonriver"
+  },
+  {
+    "base": "CHZ",
+    "target": "USDT",
+    "coin_id": "chiliz"
+  },
+  {
+    "base": "WAVES",
+    "target": "USDT",
+    "coin_id": "waves"
+  },
+  {
+    "base": "BNT",
+    "target": "USDT",
+    "coin_id": "bancor"
+  }
+]
