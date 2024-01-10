@@ -14,7 +14,7 @@ def calculate_sma(df, timeperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df[f'SMA_{timeperiod}'] = talib.SMA(df['close'], timeperiod=timeperiod)
     return df
@@ -27,7 +27,7 @@ def calculate_ema(df, timeperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df[f'EMA_{timeperiod}'] = talib.EMA(df['close'], timeperiod=timeperiod)
     return df
@@ -40,7 +40,7 @@ def calculate_stochastic_oscillator(df, fastk_period, slowk_period, slowd_period
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['Stoch_k'], df['Stoch_d'] = talib.STOCH(df['high'], df['low'], df['close'], fastk_period=fastk_period,
                                                slowk_period=slowk_period, slowd_period=slowd_period)
@@ -54,7 +54,7 @@ def calculate_atr(df, timeperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['ATR'] = talib.ATR(df['high'], df['low'], df['close'], timeperiod=timeperiod)
     return df
@@ -67,7 +67,7 @@ def calculate_chaikin_money_flow(df, fastperiod, slowperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['CMF'] = talib.ADOSC(df['high'], df['low'], df['close'], df['volume'], fastperiod=fastperiod,
                             slowperiod=slowperiod)
@@ -81,7 +81,7 @@ def calculate_obv(df):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['OBV'] = talib.OBV(df['close'], df['volume'])
     return df
@@ -94,7 +94,7 @@ def calculate_ichimoku_cloud(df, conversion_line_period, base_line_period, lead_
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     nine_period_high = df['high'].rolling(window=conversion_line_period).max()
     nine_period_low = df['low'].rolling(window=conversion_line_period).min()
@@ -121,7 +121,7 @@ def calculate_mfi(df):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['MFI'] = (df['high'] - df['low']) / df['volume']
     return df
@@ -135,7 +135,7 @@ def calculate_atr_percentage(df, timeperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     atr = talib.ATR(df['high'], df['low'], df['close'], timeperiod=timeperiod)
     df['ATR_Percentage'] = (atr / df['close']) * 100
@@ -150,7 +150,7 @@ def calculate_heikin_ashi(df):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['HA_Close'] = (df['open'] + df['high'] + df['low'] + df['close']) / 4
     df['HA_Open'] = ((df['open'].shift(1) + df['close'].shift(1)) / 2).fillna(df['open'].iloc[0])
@@ -167,7 +167,7 @@ def calculate_tii(df, period):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['TII'] = 100 * (df['close'] - df['close'].rolling(window=period).mean()) / df['close'].rolling(
         window=period).mean()
@@ -182,7 +182,7 @@ def calculate_kama(df, timeperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['KAMA'] = talib.KAMA(df['close'], timeperiod=timeperiod)
     return df
@@ -196,7 +196,7 @@ def calculate_wto(df, n1, n2):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     ap = (df['high'] + df['low'] + df['close']) / 3
     esa = ap.ewm(span=n1, adjust=False).mean()
@@ -214,7 +214,7 @@ def calculate_hla(df, period):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['HLA'] = (df['high'].rolling(window=period).max() + df['low'].rolling(window=period).min()) / 2
     return df
@@ -228,7 +228,7 @@ def calculate_donchian_channels(df, period):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['Donchian_Channel_High'] = df['high'].rolling(window=period).max()
     df['Donchian_Channel_Low'] = df['low'].rolling(window=period).min()
@@ -238,7 +238,7 @@ def calculate_donchian_channels(df, period):
 def calculate_ama(df, period):
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     # Calculate the Efficiency Ratio (ER)
     change = df['close'].diff().abs()
@@ -278,7 +278,7 @@ def calculate_zigzag(df, threshold_percentage):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     threshold_value = df['close'].mean() * threshold_percentage
 
@@ -317,7 +317,7 @@ def calculate_macd(df, fastperiod, slowperiod, signalperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['MACD'], df['MACD_Signal'], df['MACD_Histogram'] = talib.MACD(df['close'], fastperiod=fastperiod,
                                                                      slowperiod=slowperiod, signalperiod=signalperiod)
@@ -331,7 +331,7 @@ def calculate_rsi(df, timeperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['RSI'] = talib.RSI(df['close'], timeperiod=timeperiod)
     return df
@@ -344,7 +344,7 @@ def calculate_bollinger_bands(df, timeperiod, nbdevup, nbdevdn):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['Upper_Band'], df['Middle_Band'], df['Lower_Band'] = talib.BBANDS(df['close'], timeperiod=timeperiod,
                                                                          nbdevup=nbdevup, nbdevdn=nbdevdn)
@@ -359,7 +359,7 @@ def calculate_cci(df, timeperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['CCI'] = talib.CCI(df['high'], df['low'], df['close'], timeperiod=timeperiod)
     return df
@@ -373,7 +373,7 @@ def calculate_williams_r(df, timeperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['Williams_R'] = talib.WILLR(df['high'], df['low'], df['close'], timeperiod=timeperiod)
     return df
@@ -387,7 +387,7 @@ def calculate_momentum(df, timeperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['Momentum'] = talib.MOM(df['close'], timeperiod=timeperiod)
     return df
@@ -401,7 +401,7 @@ def calculate_tsi(df, high_period, low_period):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     momentum = df['close'].diff()
     first_smoothing = momentum.ewm(span=high_period, adjust=False).mean()
@@ -420,7 +420,7 @@ def calculate_ultimate_oscillator(df, timeperiod1, timeperiod2, timeperiod3):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['Ultimate_Osc'] = talib.ULTOSC(df['high'], df['low'], df['close'],
                                       timeperiod1=timeperiod1,
@@ -437,7 +437,7 @@ def calculate_std_dev(df, timeperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['Std_Dev'] = talib.STDDEV(df['close'], timeperiod=timeperiod, nbdev=1)
     return df
@@ -451,7 +451,7 @@ def calculate_adxr(df, timeperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['ADXR'] = talib.ADXR(df['high'], df['low'], df['close'], timeperiod=timeperiod)
     return df
@@ -465,7 +465,7 @@ def calculate_aroon(df, timeperiod):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['Aroon_Up'], df['Aroon_Down'] = talib.AROON(df['high'], df['low'], timeperiod=timeperiod)
     return df
@@ -479,7 +479,7 @@ def calculate_roc(df, timeperiod=10):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['ROC'] = talib.ROC(df['close'], timeperiod=timeperiod)
     return df
@@ -493,7 +493,7 @@ def calculate_market_sentiment_oscillator(df, periods=14):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['Price_Change'] = df['close'].pct_change(periods=periods)
     df['Volume_Change'] = df['volume'].pct_change(periods=periods)
@@ -509,7 +509,7 @@ def calculate_linear_regression_slope(df, timeperiod=14):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['Lin_Reg_Slope'] = talib.LINEARREG_SLOPE(df['close'], timeperiod=timeperiod)
     return df
@@ -523,7 +523,7 @@ def calculate_fisher_transform(df, lookback=10):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['median_price'] = (df['high'] + df['low']) / 2
     df['fisher_value'] = 0.0
@@ -548,7 +548,7 @@ def calculate_ehlers_fisher_transform(df, period=10):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     median_price = (df['high'] + df['low']) / 2
     rolling_max = median_price.rolling(window=period).max()
@@ -572,7 +572,7 @@ def calculate_elders_force_index(df):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['EFI'] = (df['close'] - df['close'].shift(1)) * df['volume']
     return df
@@ -586,7 +586,7 @@ def calculate_elder_ray_index(df, ema_period=13):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['Elder_Bull_Power'] = df['high'] - talib.EMA(df['close'], timeperiod=ema_period)
     df['Elder_Bear_Power'] = df['low'] - talib.EMA(df['close'], timeperiod=ema_period)
@@ -601,7 +601,7 @@ def calculate_keltner_channels(df, ema_period=20, atr_period=10, multiplier=1.5)
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['Keltner_Channel_Middle'] = talib.EMA(df['close'], timeperiod=ema_period)
     atr = talib.ATR(df['high'], df['low'], df['close'], timeperiod=atr_period)
@@ -618,7 +618,7 @@ def calculate_dpo(df, period=20):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     displaced_period = int((0.5 * period) + 1)
     df['DPO'] = df['close'].shift(displaced_period) - df['close'].rolling(window=period).mean()
@@ -633,7 +633,7 @@ def calculate_ad_line(df):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['A/D_Line'] = talib.AD(df['high'], df['low'], df['close'], df['volume'])
     return df
@@ -647,7 +647,7 @@ def calculate_vortex_indicator(df, period=14):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['VM+'] = abs(df['high'] - df['low'].shift(1))
     df['VM-'] = abs(df['low'] - df['high'].shift(1))
@@ -668,7 +668,7 @@ def calculate_volume_oscillator(df, short_period=5, long_period=10):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     short_vol = df['volume'].rolling(window=short_period).mean()
     long_vol = df['volume'].rolling(window=long_period).mean()
@@ -684,7 +684,7 @@ def calculate_price_oscillator(df, short_period=5, long_period=10):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     short_price = df['close'].rolling(window=short_period).mean()
     long_price = df['close'].rolling(window=long_period).mean()
@@ -700,7 +700,7 @@ def calculate_balance_of_power(df):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     df['BOP'] = (df['close'] - df['open']) / (df['high'] - df['low'])
     return df
@@ -709,7 +709,7 @@ def calculate_balance_of_power(df):
 def WMA(df, period):
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     return df.rolling(period).apply(lambda x: ((np.arange(period) + 1) * x).sum() / (np.arange(period) + 1).sum(),
                                     raw=True)
@@ -723,12 +723,9 @@ def calculate_hma(df, period):
     """
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
-    logger.info(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
+    print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     half_length = int(period / 2)
     sqrt_length = int(np.sqrt(period))
     df['HMA'] = WMA(2 * WMA(df['close'], half_length) - WMA(df['close'], period), sqrt_length)
     return df
-
-
-calculate_sma(None, [1, 2, 3])
