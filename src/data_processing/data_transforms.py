@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
 
-# Additional Considerations:
+# TODO: Additional Considerations:
 # 1. Normalize Data: Depending on your ML model, you might need to normalize or scale the data.
 # 2. Feature Selection: Use feature importance techniques to select the most relevant indicators.
 # 4. Timeframe Consistency: Make sure the timeframes of your indicators match your trading strategy.

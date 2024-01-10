@@ -6,7 +6,6 @@ import inspect
 logger = logging.getLogger(__name__)
 
 
-# TODO: check ema_period
 # Elder-Ray Index
 def calculate_elder_ray_index(df: pd.DataFrame, ema_period: int):
     """
