@@ -6,15 +6,15 @@ import inspect
 logger = logging.getLogger(__name__)
 
 
-def calculate_ama(df: pd.DataFrame, period: int):
+def calculate_ama(df: pd.DataFrame, timeperiod: int):
     args = inspect.getargvalues(inspect.currentframe()).locals
     del args['df']
     print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
     # Calculate the Efficiency Ratio (ER)
     change = df['close'].diff().abs()
-    volatility = change.rolling(window=period).sum()
-    er = change.rolling(window=period).sum() / volatility
+    volatility = change.rolling(window=timeperiod).sum()
+    er = change.rolling(window=timeperiod).sum() / volatility
 
     # Constants for fast and slow EMA
     fast = 2 / (2 + 1)

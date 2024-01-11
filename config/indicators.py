@@ -1,4 +1,4 @@
-CONFIG = {
+INDICATORS_SETTINGS = {
     "WTO": {
         "n1": {
             "1h": 10,
@@ -12,7 +12,7 @@ CONFIG = {
         }
     },
     "HLA": {
-        "period": {
+        "timeperiod": {
             "1h": 14,
             "4h": 14,
             "1d": 14
@@ -50,7 +50,7 @@ CONFIG = {
         }
     },
     "RSI": {
-        "period": {
+        "timeperiod": {
             "1h": 10,
             "4h": 12,
             "1d": 14
@@ -91,7 +91,7 @@ CONFIG = {
         }
     },
     "ATR": {
-        "period": {
+        "timeperiod": {
             "1h": 10,
             "4h": 12,
             "1d": 14
@@ -127,14 +127,14 @@ CONFIG = {
         }
     },
     "WILLIAMS_R": {
-        "period": {
+        "timeperiod": {
             "1h": 14,
             "4h": 14,
             "1d": 14
         }
     },
     "MOMENTUM": {
-        "period": {
+        "timeperiod": {
             "1h": 10,
             "4h": 12,
             "1d": 14
@@ -153,73 +153,73 @@ CONFIG = {
         }
     },
     "MFI": {
-        "period": {
+        "timeperiod": {
             "1h": 10,
             "4h": 12,
             "1d": 14
         }
     },
     "ULT_OSC": {
-        "period1": {
+        "timeperiod1": {
             "1h": 7,
             "4h": 7,
             "1d": 7
         },
-        "period2": {
+        "timeperiod2": {
             "1h": 14,
             "4h": 14,
             "1d": 14
         },
-        "period3": {
+        "timeperiod3": {
             "1h": 28,
             "4h": 28,
             "1d": 28
         }
     },
     "STD_DEV": {
-        "period": {
+        "timeperiod": {
             "1h": 10,
             "4h": 15,
             "1d": 20
         }
     },
     "ADXR": {
-        "period": {
+        "timeperiod": {
             "1h": 14,
             "4h": 14,
             "1d": 14
         }
     },
     "AROON": {
-        "period": {
+        "timeperiod": {
             "1h": 14,
             "4h": 20,
             "1d": 25
         }
     },
     "ROC": {
-        "period": {
+        "timeperiod": {
             "1h": 10,
             "4h": 15,
             "1d": 20
         }
     },
     "LIN_REG_SLOPE": {
-        "period": {
+        "timeperiod": {
             "1h": 14,
             "4h": 17,
             "1d": 20
         }
     },
     "TRIMA": {
-        "period": {
+        "timeperiod": {
             "1h": 30,
             "4h": 30,
             "1d": 30
         }
     },
     "VORTEX": {
-        "period": {
+        "timeperiod": {
             "1h": 14,
             "4h": 14,
             "1d": 14
@@ -250,7 +250,7 @@ CONFIG = {
         }
     },
     "HMA": {
-        "period": {
+        "timeperiod": {
             "1h": 14,
             "4h": 17,
             "1d": 20
@@ -264,14 +264,14 @@ CONFIG = {
         }
     },
     "DONCHIAN_CHANNELS": {
-        "period": {
+        "timeperiod": {
             "1h": 20,
             "4h": 20,
             "1d": 20
         }
     },
     "CMO": {
-        "period": {
+        "timeperiod": {
             "1h": 14,
             "4h": 17,
             "1d": 20
@@ -284,22 +284,22 @@ CONFIG = {
             "1d": 10
         }
     },
-    "EHLERS_FISHER": {
-        "period": {
+    "EHLERS_FISHER_TRANSFORM": {
+        "timeperiod": {
             "1h": 10,
             "4h": 10,
             "1d": 10
         }
     },
     "EFI": {
-        "period": {
+        "timeperiod": {
             "1h": 1,
             "4h": 1,
             "1d": 1
         }
     },
     "ATR_PERCENTAGE": {
-        "period": {
+        "timeperiod": {
             "1h": 14,
             "4h": 12,
             "1d": 14
@@ -307,14 +307,14 @@ CONFIG = {
     },
     "HEIKIN_ASHI": {},
     "TII": {
-        "period": {
+        "timeperiod": {
             "1h": 14,
             "4h": 17,
             "1d": 20
         }
     },
     "KAMA": {
-        "period": {
+        "timeperiod": {
             "1h": 30,
             "4h": 30,
             "1d": 30
@@ -338,7 +338,7 @@ CONFIG = {
         }
     },
     "AMA": {
-        "period": {
+        "timeperiod": {
             "1h": 30,
             "4h": 30,
             "1d": 30
@@ -352,7 +352,7 @@ CONFIG = {
         }
     },
     "DPO": {
-        "period": {
+        "timeperiod": {
             "1h": 20,
             "4h": 30,
             "1d": 60
@@ -366,7 +366,7 @@ CONFIG = {
         }
     },
     "MARKET_SENTIMENT_OSCILLATOR": {
-        "period": {
+        "timeperiod": {
             "1h": 14,
             "4h": 20,
             "1d": 30
