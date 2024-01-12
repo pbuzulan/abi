@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 
 # Elder's Force Index (EFI)
-def calculate_elders_force_index(df: pd.DataFrame):
+def calculate_elders_force_index(df: pd.DataFrame, timeperiod: int):
     """
     Elder's Force Index (EFI)
     An oscillator that uses price and volume to assess the power behind a price move.
@@ -16,5 +16,5 @@ def calculate_elders_force_index(df: pd.DataFrame):
     del args['df']
     print(f"{inspect.currentframe().f_code.co_name}() executed with values: {args}")
 
-    df['EFI'] = (df['close'] - df['close'].shift(1)) * df['volume']
+    df['EFI'] = (df['close'] - df['close'].shift(timeperiod)) * df['volume']
     return df
