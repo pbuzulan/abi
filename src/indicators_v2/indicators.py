@@ -1236,10 +1236,6 @@ def calculate_cdlmorningstar(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-import pandas as pd
-import talib
-
-
 def calculate_cdlonneck(df: pd.DataFrame) -> pd.DataFrame:
     """
     Calculate On-Neck Pattern candlestick pattern.
@@ -1489,5 +1485,44 @@ def calculate_return(df: pd.DataFrame) -> pd.DataFrame:
     pd.DataFrame: DataFrame with 'return' column added.
     """
     df['return'] = df['close'].pct_change() * 100  # Calculate daily returns in percentage
+
+    return df
+
+
+def _categorize_return_interval(return_value):
+    """
+    Categorize the return value into one of the 21 predefined return intervals.
+
+    Args:
+    return_value (float): The return value to categorize.
+
+    Returns:
+    int: The category label of the return interval.
+    """
+    return_ranges = [
+        (-100, -11), (-11, -9), (-9, -7), (-7, -5), (-5, -3), (-3, -1), (-1, -0.8), (-0.8, -0.6), (-0.6, -0.4),
+        (-0.4, -0.2),
+        (-0.2, 0.2),
+        (0.2, 0.4), (0.4, 0.6), (0.6, 0.8), (0.8, 1), (1, 3), (3, 5), (5, 7), (7, 9), (9, 11), (11, float('inf'))
+    ]
+
+    for i, (lower, upper) in enumerate(return_ranges):
+        if lower <= return_value < upper:
+            return i - 10  # Adjust index to match the range labels from -10 to 10
+
+    return None  # Return None if the return value does not fall into any of the ranges
+
+
+def calculate_return_interval(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Calculate daily returns in percentage
+
+    Parameters:
+    df (pd.DataFrame): DataFrame with 'open', 'high', 'low', and 'close' columns.
+
+    Returns:
+    pd.DataFrame: DataFrame with 'return_interval' column added.
+    """
+    df['return_interval'] = df['return'].apply(_categorize_return_interval)
 
     return df

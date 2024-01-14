@@ -1,125 +1,214 @@
 import joblib
 import pandas as pd
 import numpy as np
+from scipy import stats
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 
 
 # based on Predicting bitcoin returns using high-dimensional technical indicators research
 class BitcoinTradingModel:
-    def __init__(self, num_trees=1000, num_features=11):
+    def __init__(self, num_trees=1000, num_features=124):
+        """
+        Initialize the BitcoinTradingModel.
+
+        Parameters:
+        num_trees (int): Number of decision trees to be used in the model.
+        num_features (int): Number of features to be selected randomly for training each tree.
+
+        Attributes:
+        tree_models (list): Stores the trained decision tree models.
+        tree_performance (list): Stores the performance of each tree model.
+        return_ranges (list of tuples): Defines the 21 return ranges as per the research.
+        """
         self.num_trees = num_trees
         self.num_features = num_features
         self.tree_models = []
-        self.threshold = None
+        self.tree_performance = []
+        self.selected_features_per_tree = []  # Store selected features for each tree
+        self.return_ranges = self._define_return_ranges()
 
-    def save(self, filename):
+    def _define_return_ranges(self):
         """
-        Save the trained model to a file.
-
-        Parameters:
-            filename (str): File path to save the model.
+        Define the 21 return ranges as per the research.
 
         Returns:
-            None
+        List of tuples representing the return ranges.
         """
-        model_data = {
-            'num_trees': self.num_trees,
-            'num_features': self.num_features,
-            'tree_models': self.tree_models,
-            'threshold': self.threshold
-        }
-        joblib.dump(model_data, filename)
+        negative_ranges = [(-100, -11), (-11, -9), (-9, -7), (-7, -5), (-5, -3), (-3, -1), (-1, -0.8), (-0.8, -0.6),
+                           (-0.6, -0.4), (-0.4, -0.2)]
+        positive_ranges = [(0.2, 0.4), (0.4, 0.6), (0.6, 0.8), (0.8, 1), (1, 3), (3, 5), (5, 7), (7, 9), (9, 11),
+                           (11, float('inf'))]
+        neutral_range = [(-0.2, 0.2)]
+        return negative_ranges + neutral_range + positive_ranges
+
+    def save(self, filename):
+        joblib.dump(self, filename)
+
+    def update(self, new_data, target_column='return_interval'):
+        X_new = new_data.drop(columns=[target_column])
+        y_new = new_data[target_column]
+        for tree in self.tree_models:
+            tree.fit(X_new, y_new)
 
     @classmethod
     def load(cls, filename):
+        model = joblib.load(filename)
+        return model
+
+    def train(self, data, target_column='return_interval'):
         """
-        Load a trained model from a file.
+        Train the model on the provided dataset.
 
         Parameters:
-            filename (str): File path to load the model from.
-
-        Returns:
-            BitcoinTradingModel: A trained model instance.
+        data (DataFrame): The dataset containing features and target column.
+        target_column (str): The name of the target column in the dataset.
         """
-        model_data = joblib.load(filename)
-        loaded_model = cls(
-            num_trees=model_data['num_trees'],
-            num_features=model_data['num_features']
-        )
-        loaded_model.tree_models = model_data['tree_models']
-        loaded_model.threshold = model_data['threshold']
-        return loaded_model
+        X = data.drop(columns=[target_column])
+        y = data[target_column]
 
-    def train(self, data):
-        # Assuming 'data' is a DataFrame containing historical Bitcoin data with technical indicators
-
-        # Define the features and target variable
-        X = data.drop(columns=['return'])  # Replace 'return' with the actual column name
-        y = data['return']  # Replace 'return' with the actual column name
-
-        # Train 1000 decision trees
         for _ in range(self.num_trees):
-            # Randomly select a subset of features for each tree
-            selected_features = np.random.choice(X.columns, self.num_features, replace=False)
+            selected_features = np.random.choice(X.columns, self.num_features, replace=True)
+            self.selected_features_per_tree.append(selected_features)
+
+            # selected_features = np.random.choice(X.columns, self.num_features, replace=True)
             X_subset = X[selected_features]
+            X_train, X_val, y_train, y_val = train_test_split(X_subset, y, test_size=0.2, random_state=42)
 
-            # Split the data into training and test sets (adjust the split ratio as needed)
-            X_train, X_test, y_train, y_test = train_test_split(X_subset, y, test_size=0.2, random_state=42)
-
-            # Create and train a DecisionTreeClassifier
             tree = DecisionTreeClassifier(criterion='entropy', random_state=42)
             tree.fit(X_train, y_train)
-
-            # Append the trained tree to the list
             self.tree_models.append(tree)
 
-        # Calculate the average threshold based on the trained trees
-        self.calculate_threshold(data)
-
-    def calculate_threshold(self, data):
-        # Calculate the average prediction from the 1000 trees
-        average_predictions = np.mean([tree.predict(data.drop(columns=['return'])) for tree in self.tree_models],
-                                      axis=0)
-
-        # Calculate the threshold based on the yb values for which signals are generated
-        self.threshold = np.mean([abs(yb) for yb in average_predictions])
+            # Evaluate the tree's performance
+            tree_performance = self.evaluate_tree(tree, X_val, y_val)
+            self.tree_performance.append(tree_performance)
 
     def predict(self, data):
         """
-        Predict Bitcoin trading signals.
+        Predict the trading advice and the return range for the given data.
 
         Parameters:
-            data (DataFrame): DataFrame containing the latest Bitcoin data for prediction.
+        data (DataFrame): The dataset containing a single row with the latest data and indicators.
 
         Returns:
-            np.array: Predicted trading signals (1 for buy, 0 for hold/sell).
+        list of tuples: Each tuple contains the trading advice ('Long', 'Short', or 'Cash') and the return range label.
         """
-        # Calculate the average prediction from the trained trees
-        average_predictions = np.mean([tree.predict(data) for tree in self.tree_models], axis=0)
+        reliable_long_ranges = [4, 5, 6, 7, 9, 10]  # Indices for 'Long' advice
+        reliable_short_ranges = [-8, -7]  # Indices for 'Short' advice
 
-        # Generate trading signals based on the threshold
-        trading_signals = np.where(average_predictions > self.threshold, 1, 0)
+        # Ensure data contains the same features as during training
+        # and in the correct order
+        predictions = []
+        for tree, features in zip(self.tree_models, self.selected_features_per_tree):
+            # Ensure that only the features used for this tree are in the data
+            X_subset = data[features]
+            predictions.append(tree.predict(X_subset))
 
-        return trading_signals
+        predictions = np.array(predictions)
+        trading_advice_and_range = []
 
-    def update(self, X_new, y_new):
+        for preds in predictions.T:
+            # Aggregate predictions across all trees for the sample
+            # Using mode (most common prediction) as an example
+            mode_result = stats.mode(preds)
+
+            # Check if the mode result is a scalar or an array
+            if np.isscalar(mode_result.mode):
+                pred = mode_result.mode
+            else:
+                pred = mode_result.mode[0]
+
+            # Find the range index for the prediction
+            range_label = None
+            for i, (lower, upper) in enumerate(self.return_ranges):
+                if lower <= pred < upper:
+                    range_label = i - 10  # Adjust index to match the range labels
+                    break
+
+            # Determine trading advice based on the range label
+            advice = 'Cash'  # Default advice
+            if range_label in reliable_long_ranges:
+                advice = 'Long'
+            elif range_label in reliable_short_ranges:
+                advice = 'Short'
+
+            trading_advice_and_range.append((advice, range_label))
+
+        return trading_advice_and_range
+
+    def evaluate_tree(self, tree, X_val, y_val):
         """
-        Update the existing model with new data.
+        Evaluate the performance of a tree on the validation set.
 
         Parameters:
-            X_new (DataFrame): New data features.
-            y_new (Series): New data target values.
+        tree (DecisionTreeClassifier): The decision tree to be evaluated.
+        X_val (DataFrame): Validation set features.
+        y_val (Series): Validation set target.
 
         Returns:
-            None
+        float: The performance metric (e.g., accuracy) of the tree.
         """
-        if not self.tree_models:
-            # If the model is not yet trained, train it with the new data
-            self.train(pd.concat([X_new, y_new], axis=1))
-        else:
-            # Otherwise, update the model with the new data incrementally
-            for tree in self.tree_models:
-                tree.partial_fit(X_new, y_new, classes=[0, 1])
-            # Recalculate the threshold based on the updated model
-            self.calculate_threshold(pd.concat([X_new, y_new], axis=1))
+        predictions = tree.predict(X_val)
+        accuracy = np.mean(predictions == y_val)
+        return accuracy
+
+    def calculate_metrics(self, test_data, actual_returns_interval, actual_returns):
+        """
+        Calculate various performance metrics based on the model's predictions.
+
+        Args:
+        test_data (DataFrame): The test dataset.
+        actual_returns (Series): Actual returns corresponding to the test dataset.
+
+        Returns:
+        dict: A dictionary containing various performance metrics.
+        """
+        predictions = self.predict(test_data)
+
+        # Calculate annualized volatility
+        daily_volatility = np.std(actual_returns)
+        # TODO: understand why annualized_volatility is so different than the research
+        annualized_volatility = daily_volatility * np.sqrt(365)
+
+        metrics = {
+            'avg_volatility': annualized_volatility,
+            'win_ratio': None,
+            'loss_ratio': None,
+            'win_loss_ration': None,
+            'wins': None,
+            'losses': None,
+        }
+
+        # Use the _define_return_ranges method to get the return ranges
+        all_ranges = self._define_return_ranges()
+
+        # Calculate win/loss ratios
+        wins = losses = 0
+        for pred, actual in zip(predictions, actual_returns_interval):
+            _, predicted_range_label = pred
+
+            # Find the actual range label
+            actual_range_label = None
+            for i, (lower, upper) in enumerate(all_ranges):
+                if lower <= actual < upper:
+                    actual_range_label = i - 10  # Adjust index to match the range labels
+                    break
+
+            # Check if the prediction matches the actual range
+            if predicted_range_label == actual_range_label:
+                wins += 1
+            else:
+                losses += 1
+
+        total_predictions = wins + losses
+        wins_ration = wins / total_predictions if total_predictions > 0 else 0
+        losses_ration = losses / total_predictions if total_predictions > 0 else 0
+        metrics['wins'] = wins
+        metrics['losses'] = losses
+        metrics['win_ratio'] = wins_ration
+        metrics['loss_ratio'] = losses_ration
+        metrics['win_loss_ration'] = wins_ration / losses_ration
+
+        # Implement calculations for other metrics as needed
+
+        return metrics

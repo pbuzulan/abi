@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.preprocessing import StandardScaler, RobustScaler
+from sklearn.preprocessing import MinMaxScaler, RobustScaler
 
 
 def fill_missing_values(df):
@@ -59,3 +59,21 @@ def normalize_dataset(df):
     df_scaled[['datetime_utc', 'timestamp']] = identifiers
 
     return df_scaled
+
+
+def normalize_dataset_v2(df, exclude_columns: list = None):
+    """
+    Normalize the feature columns of the dataframe using Min-Max Scaling, excluding specified columns.
+
+    Args:
+    df (DataFrame): The input dataframe.
+    exclude_columns (list): List of column names to be excluded from normalization.
+
+    Returns:
+    DataFrame: A dataframe with normalized features, excluding the specified columns.
+    """
+    scaler = MinMaxScaler()
+    if exclude_columns is None: exclude_columns = []
+    columns_to_normalize = df.columns.difference(exclude_columns)
+    df[columns_to_normalize] = scaler.fit_transform(df[columns_to_normalize])
+    return df
