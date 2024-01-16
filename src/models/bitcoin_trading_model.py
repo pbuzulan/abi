@@ -21,6 +21,8 @@ class BitcoinTradingModel:
         tree_performance (list): Stores the performance of each tree model.
         return_ranges (list of tuples): Defines the 21 return ranges as per the research.
         """
+        self.model_name = 'BitcoinTradingModel'
+        self.model_file_name = 'ReturnIntervalPredictionBitcoinTradingModel_v1.pkl'
         self.num_trees = num_trees
         self.num_features = num_features
         self.tree_models = []
@@ -93,7 +95,8 @@ class BitcoinTradingModel:
         Returns:
         list of tuples: Each tuple contains the trading advice ('Long', 'Short', or 'Cash') and the return range label.
         """
-        reliable_long_ranges = [4, 5, 6, 7, 9, 10]  # Indices for 'Long' advice
+        # TODO: check 8 if it's ok with other datasets and tests (it's not in the research)
+        reliable_long_ranges = [4, 5, 6, 7, 9, 8, 10]  # Indices for 'Long' advice
         reliable_short_ranges = [-8, -7]  # Indices for 'Short' advice
 
         # Ensure data contains the same features as during training
@@ -152,6 +155,15 @@ class BitcoinTradingModel:
         accuracy = np.mean(predictions == y_val)
         return accuracy
 
+    # TODO: to refactor as it's a duplicate method
+    def _determine_position(self, actual_range_label):
+        if actual_range_label in [4, 5, 6, 7, 9, 8, 10]:
+            return 'Long'
+        elif actual_range_label in [-8, -7]:
+            return 'Short'
+        else:
+            return 'Cash'
+
     def calculate_metrics(self, test_data, actual_returns_interval, actual_returns):
         """
         Calculate various performance metrics based on the model's predictions.
@@ -170,45 +182,47 @@ class BitcoinTradingModel:
         # TODO: understand why annualized_volatility is so different than the research
         annualized_volatility = daily_volatility * np.sqrt(365)
 
-        metrics = {
-            'avg_volatility': annualized_volatility,
-            'win_ratio': None,
-            'loss_ratio': None,
-            'win_loss_ration': None,
-            'wins': None,
-            'losses': None,
-        }
-
-        # Use the _define_return_ranges method to get the return ranges
-        all_ranges = self._define_return_ranges()
+        metrics = {}
 
         # Calculate win/loss ratios
-        wins = losses = 0
+        wins_range = losses_range = 0
+        wins_position = losses_position = 0
         for pred, actual in zip(predictions, actual_returns_interval):
-            _, predicted_range_label = pred
+            predicted_position, predicted_range_label = pred
 
             # Find the actual range label
             actual_range_label = None
-            for i, (lower, upper) in enumerate(all_ranges):
+            for i, (lower, upper) in enumerate(self.return_ranges):
                 if lower <= actual < upper:
                     actual_range_label = i - 10  # Adjust index to match the range labels
                     break
 
             # Check if the prediction matches the actual range
             if predicted_range_label == actual_range_label:
-                wins += 1
+                wins_range += 1
             else:
-                losses += 1
+                losses_range += 1
 
-        total_predictions = wins + losses
-        wins_ration = wins / total_predictions if total_predictions > 0 else 0
-        losses_ration = losses / total_predictions if total_predictions > 0 else 0
-        metrics['wins'] = wins
-        metrics['losses'] = losses
-        metrics['win_ratio'] = wins_ration
-        metrics['loss_ratio'] = losses_ration
-        metrics['win_loss_ration'] = wins_ration / losses_ration
+            # Check if the prediction matches the actual position
+            if predicted_position == self._determine_position(actual_range_label):
+                wins_position += 1
+            else:
+                losses_position += 1
 
-        # Implement calculations for other metrics as needed
+        total_predictions = wins_range + losses_range
+        wins_ratio_range = wins_range / total_predictions if total_predictions > 0 else 0
+        losses_ratio_range = losses_range / total_predictions if total_predictions > 0 else 0
+        wins_ratio_position = wins_position / total_predictions if total_predictions > 0 else 0
+        losses_ratio_position = losses_position / total_predictions if total_predictions > 0 else 0
+        metrics['wins_range'] = wins_range
+        metrics['losses_range'] = losses_range
+        metrics['wins_position'] = wins_position
+        metrics['losses_position'] = losses_position
+        metrics['wins_ratio_range'] = wins_ratio_range
+        metrics['losses_ratio_range'] = losses_ratio_range
+        metrics['wins_ratio_position'] = wins_ratio_position
+        metrics['losses_ratio_position'] = losses_ratio_position
+        metrics['win_loss_ration_range'] = wins_ratio_range / losses_ratio_range
+        metrics['win_loss_ration_position'] = wins_ratio_position / losses_ratio_position
 
         return metrics

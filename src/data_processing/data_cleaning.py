@@ -8,6 +8,18 @@ def drop_rows_with_nan_in_columns(df):
     return df.dropna(axis=1, how='all')
 
 
+def remove_rows_with_nulls_until_full(df):
+    # Loop through the rows in the DataFrame
+    for index, row in df.iterrows():
+        if row.isnull().any():
+            # If the current row has any null values, remove it
+            df.drop(index, inplace=True)
+        else:
+            # If the current row has no null values, stop the loop
+            break
+    return df
+
+
 def remove_sparse_indicators(df):
     """
     Remove indicator columns from the DataFrame if more than 50% of their data is missing.

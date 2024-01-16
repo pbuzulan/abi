@@ -385,6 +385,7 @@ def run_prediction(df: pd.DataFrame, **kwargs):
     predicted_returns = [pred[1] for pred in prediction]
     predicted_position = [pred[0] for pred in prediction]
 
+    # TODO: checking if it's correct to shift or now
     shifted_predicted_returns = pd.Series(predicted_returns).shift(1)
     shifted_predicted_position = pd.Series(predicted_position).shift(1)
 
@@ -399,24 +400,20 @@ def run_prediction(df: pd.DataFrame, **kwargs):
 
 
 if __name__ == '__main__':
-    # # TRAINING
-    # _dataset_info = load_raw_dataset_and_info()
-    # df = _dataset_info['df']
-    # coin = _dataset_info['coin']
-    # timespan = _dataset_info['timespan']
-    # run_training(df=df, split_timestamp=1672531200000, coin=coin, timespan=timespan, save_datasets=True,
-    #              save_trained_model=True)
+    # TRAINING
+    _dataset_info = load_raw_dataset_and_info()
+    df = _dataset_info['df']
+    coin = _dataset_info['coin']
+    timespan = _dataset_info['timespan']
+    run_training(
+        df=df,
+        split_timestamp=1672531200000,
+        coin=coin,
+        timespan=timespan,
+        save_datasets=True,
+        save_trained_model=True
+    )
 
-    # # PREDICTION
-    # model_f_path = '../models/2014-01-31_2022-12-31_1D_BTC_ReturnIntervalPredictionBitcoinTradingModel_v1.pkl'
-    # df = load_test_dataset_and_info()
-    # df = run_prediction(df=df, model_f_path=model_f_path)
-    # df = compose_analysis_dataframe(df)
-
-    # SIMULATE CASH RETURN
-    _df = pd.read_csv('../data/analysis/actuals_vs_pred_v8.csv')
-    return_cash = simulate_return(_df)
-    #
     # print(check_liquidation(_df))
     #
     # leverage = 10

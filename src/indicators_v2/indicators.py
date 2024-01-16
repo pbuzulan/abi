@@ -1513,9 +1513,9 @@ def _categorize_return_interval(return_value):
     return None  # Return None if the return value does not fall into any of the ranges
 
 
-def calculate_return_interval(df: pd.DataFrame) -> pd.DataFrame:
+def calculate_predicted_return_interval(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Calculate daily returns in percentage
+    Calculate and categorize the next day's return interval.
 
     Parameters:
     df (pd.DataFrame): DataFrame with 'open', 'high', 'low', and 'close' columns.
@@ -1523,6 +1523,26 @@ def calculate_return_interval(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
     pd.DataFrame: DataFrame with 'return_interval' column added.
     """
+    # Shift the returns by one row to represent the next day's return
+    df['return'] = df['return'].shift(-1)
+
+    # Apply the categorization function
     df['return_interval'] = df['return'].apply(_categorize_return_interval)
+
+    return df
+
+
+def calculate_actual_return_interval(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Calculate and categorize the actual next day's return interval without adding an intermediate column.
+
+    Parameters:
+    df (pd.DataFrame): DataFrame with 'open', 'high', 'low', and 'close' columns.
+
+    Returns:
+    pd.DataFrame: DataFrame with 'actual_return_interval' column added.
+    """
+    # Directly calculate and apply the categorization function
+    df['return_interval'] = ((df['close'].shift(-1) - df['close']) / df['close'] * 100).apply(_categorize_return_interval)
 
     return df
