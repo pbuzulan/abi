@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 
 # based on Predicting bitcoin returns using high-dimensional technical indicators research
 class BitcoinTradingModel:
-    def __init__(self, num_trees=1000, num_features=124):
+    def __init__(self, num_trees=1000, num_features=11):
         """
         Initialize the BitcoinTradingModel.
 
@@ -70,7 +70,7 @@ class BitcoinTradingModel:
         y = data[target_column]
 
         for _ in range(self.num_trees):
-            selected_features = np.random.choice(X.columns, self.num_features, replace=True)
+            selected_features = np.random.choice(X.columns, self.num_features, replace=False)
             self.selected_features_per_tree.append(selected_features)
 
             # selected_features = np.random.choice(X.columns, self.num_features, replace=True)
@@ -96,7 +96,7 @@ class BitcoinTradingModel:
         list of tuples: Each tuple contains the trading advice ('Long', 'Short', or 'Cash') and the return range label.
         """
         # TODO: check 8 if it's ok with other datasets and tests (it's not in the research)
-        reliable_long_ranges = [4, 5, 6, 7, 9, 8, 10]  # Indices for 'Long' advice
+        reliable_long_ranges = [4, 5, 6, 7, 9, 10]  # Indices for 'Long' advice
         reliable_short_ranges = [-8, -7]  # Indices for 'Short' advice
 
         # Ensure data contains the same features as during training
@@ -157,7 +157,7 @@ class BitcoinTradingModel:
 
     # TODO: to refactor as it's a duplicate method
     def _determine_position(self, actual_range_label):
-        if actual_range_label in [4, 5, 6, 7, 9, 8, 10]:
+        if actual_range_label in [4, 5, 6, 7, 9, 10]:
             return 'Long'
         elif actual_range_label in [-8, -7]:
             return 'Short'

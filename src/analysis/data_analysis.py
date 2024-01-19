@@ -53,25 +53,21 @@ def trade_signals(signals, threshold, stop_loss_percent):
     return long_position, entry_price
 
 
-def simulate_return(df):
-    budget = 1000  # Starting budget
-    leverage = 7  # Leverage factor
-    current_position = 'Cash'  # Start with no open position
+def simulate_return(df, budget=1000, leverage=10):
+    initial_budget = budget
+    final_budget = []
 
-    for i in range(len(df) - 1):
-        next_position = df.iloc[i + 1]['predicted_position']
-        percentage_change = df.iloc[i + 1]['percentage_change'] / 100
+    for current_leverage in range(1, leverage + 1):
+        for i in range(len(df) - 1):
+            current_position = df.iloc[i]['predicted_position']
+            next_day_percentage_change = df.iloc[i + 1]['percentage_change'] / 100
 
-        if current_position == 'Cash' and next_position != 'Cash':
-            current_position = next_position
-        elif current_position != 'Cash':
             if current_position == 'Long':
-                budget *= (1 + percentage_change * leverage)
+                budget *= (1 + next_day_percentage_change * current_leverage)
             elif current_position == 'Short':
-                budget *= (1 - percentage_change * leverage)
-
-        # Update the current position for the next iteration
-        current_position = next_position
-
-    print(budget)
-    return budget
+                budget *= (1 - next_day_percentage_change * current_leverage)
+            # No action for 'Cash'
+        print(f'Leverage: {current_leverage}, Budget: {budget}')
+        final_budget.append({"leverage": current_leverage, "budget": budget})
+        budget = initial_budget
+    return final_budget

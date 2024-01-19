@@ -1,26 +1,24 @@
 import os
-import pandas as pd
-import numpy as np
-
-from src.analysis.data_analysis import simulate_return
-from src.data_processing.data_cleaning import drop_rows_with_nan_in_columns, \
-    remove_rows_with_nulls_until_full
-from src.data_processing.data_transforms import normalize_dataset_v2
 from src.indicators_v2.indicators import *
 from src.models.bitcoin_trading_model import BitcoinTradingModel
-from src.utils.files_helpers import list_files_in_directory
 
-DATA_RAW_DIR = '../data/raw/'
-DATA_INTERMEDIATE_DIR = '../data/intermediate/'
-DATA_PROCESSED_DIR = '../data/processed/'
-DATA_TEST_DIR = '../data/test/'
-DATA_TRAINING_DIR = '../data/training/'
+DATA_RAW_DIR = os.getenv('DATA_RAW_DIR', '../data/raw/')
+DATA_INTERMEDIATE_DIR = os.getenv('DATA_INTERMEDIATE_DIR', '../data/intermediate/')
+DATA_PROCESSED_DIR = os.getenv('DATA_PROCESSED_DIR', '../data/processed/')
+DATA_TEST_DIR = os.getenv('DATA_TEST_DIR', '../data/test/')
+DATA_TRAINING_DIR = os.getenv('DATA_TRAINING_DIR', '../data/training/')
+DATA_ANALYSIS_DIR = os.getenv('DATA_ANALYSIS_DIR', '../data/analysis/')
+MODELS_DIR = os.getenv('MODELS_DIR', '../models/')
+ANALYSIS_FILE_NAME = os.getenv('ANALYSIS_FILE_NAME', '../data/analysis/1D_BTC_Analysis_Data_BitcoinTradingModel.csv')
+RAW_DATASET_FILE_NAME = os.getenv('RAW_DATASET_FILE_NAME', '../data/raw/BTC_ohlc_day.csv')
+TEST_DATASET_FILE_NAME = os.getenv('TEST_DATASET_FILE_NAME', '../data/test/1D_BTC_Test_Data_BitcoinTradingModel.csv')
+TRAINED_MODEL_FILE_NAME = os.getenv('TRAINED_MODEL_FILE_NAME',
+                                    '../models/2014-01-31_2022-12-31_1D_BTC_ReturnIntervalPredictionBitcoinTradingModel_v1.pkl')
 
 
 def load_raw_dataset_and_info():
-    _file = list_files_in_directory(DATA_RAW_DIR)[0]
-    df = pd.read_csv(_file)
-    _tmp = _file.split('raw/')[1]
+    df = pd.read_csv(RAW_DATASET_FILE_NAME)
+    _tmp = RAW_DATASET_FILE_NAME.split('raw/')[1]
     coin = _tmp.split('_ohlc_')[0]
     timespan = _tmp.split('_ohlc_')[1].replace(".csv", "")
     return {
@@ -31,55 +29,17 @@ def load_raw_dataset_and_info():
 
 
 def load_test_dataset_and_info():
-    _file = list_files_in_directory(DATA_TEST_DIR)[0]
-    df = pd.read_csv(_file)
+    df = pd.read_csv(TEST_DATASET_FILE_NAME)
     return df
 
 
 def determine_position(row):
-    if row['return_interval'] in [4, 5, 6, 7, 9, 8, 10]:
+    if row['return_interval'] in [4, 5, 6, 7, 9, 10]:
         return 'Long'
     elif row['return_interval'] in [-8, -7]:
         return 'Short'
     else:
         return 'Cash'
-
-
-def _train_model(df: pd.DataFrame, **kwargs):
-    # Sort the DataFrame by 'datetime_utc' column in ascending order (oldest to newest)
-    df.sort_values(by='datetime_utc', inplace=True)
-
-    # Extract the start_date (first row) and end_date (last row)
-    start_date = df['datetime_utc'].iloc[0]
-    end_date = df['datetime_utc'].iloc[-1]
-
-    del df['return']
-    del df['timestamp']
-    del df['datetime_utc']
-
-    model = BitcoinTradingModel()
-    model.train(data=df)
-
-    if kwargs['save_trained_model']:
-        model.save(
-            f'/Users/Petru_Buzulan/Private/bi/workspace/abi/models/{start_date}_{end_date}_{kwargs["timespan"]}_{kwargs["coin"]}_{model.model_file_name}')
-    return model
-
-
-def split_dataset(df: pd.DataFrame, **kwargs):
-    # split dataset into training set and test set
-    split_timestamp = kwargs['split_timestamp']
-    train_df = df[df['timestamp'] < split_timestamp]
-    test_df = df[df['timestamp'] >= split_timestamp]
-
-    if kwargs['save_datasets']:
-        train_df.to_csv(
-            f'{DATA_TRAINING_DIR}/{kwargs["timespan"]}_{kwargs["coin"]}_Training_Data_BitcoinTradingModel.csv',
-            index=False)
-        test_df.to_csv(f'{DATA_TEST_DIR}/{kwargs["timespan"]}_{kwargs["coin"]}_Test_Data_BitcoinTradingModel.csv',
-                       index=False)
-
-    return train_df, test_df
 
 
 def compose_analysis_dataframe(df: pd.DataFrame, **kwargs):
@@ -100,14 +60,43 @@ def compose_analysis_dataframe(df: pd.DataFrame, **kwargs):
 
     merged_df['percentage_change'] = ((merged_df['close'] - merged_df['open']) / merged_df['open']) * 100
 
-    columns_to_keep = ['actual_return_interval', 'predicted_returns', 'predicted_position', 'actual_position',
-                       'percentage_change', 'open', 'high', 'low', 'close', 'volume', 'timestamp', 'datetime_utc']
+    columns_to_keep = ['actual_return_interval', 'predicted_returns', 'actual_position', 'predicted_position',
+                       'percentage_change', 'open', 'high', 'low', 'close', 'volume', 'return', 'timestamp',
+                       'datetime_utc']
 
     merged_df = merged_df[columns_to_keep]
 
-    merged_df.to_csv('../data/analysis/actuals_vs_pred_v8.csv', index=False)
+    analysis_file_name = f'{DATA_ANALYSIS_DIR}/1D_BTC_Analysis_Data_BitcoinTradingModel.csv'
+
+    merged_df.to_csv(analysis_file_name, index=False)
+
+    print("analysis_file saved: ", analysis_file_name)
 
     return merged_df
+
+
+def _categorize_return_interval(return_value):
+    """
+    Categorize the return value into one of the 21 predefined return intervals.
+
+    Args:
+    return_value (float): The return value to categorize.
+
+    Returns:
+    int: The category label of the return interval.
+    """
+    return_ranges = [
+        (-100, -11), (-11, -9), (-9, -7), (-7, -5), (-5, -3), (-3, -1), (-1, -0.8), (-0.8, -0.6), (-0.6, -0.4),
+        (-0.4, -0.2),
+        (-0.2, 0.2),
+        (0.2, 0.4), (0.4, 0.6), (0.6, 0.8), (0.8, 1), (1, 3), (3, 5), (5, 7), (7, 9), (9, 11), (11, float('inf'))
+    ]
+
+    for i, (lower, upper) in enumerate(return_ranges):
+        if lower <= return_value < upper:
+            return i - 10  # Adjust index to match the range labels from -10 to 10
+
+    return None  # Return None if the return value does not fall into any of the ranges
 
 
 def run_prediction(df: pd.DataFrame, **kwargs):
@@ -133,9 +122,6 @@ def run_prediction(df: pd.DataFrame, **kwargs):
     predicted_returns = [pred[1] for pred in prediction]
     predicted_position = [pred[0] for pred in prediction]
 
-    shifted_predicted_returns = pd.Series(predicted_returns).shift(1)
-    shifted_predicted_position = pd.Series(predicted_position).shift(1)
-
     final_df['actual_position'] = final_df.apply(determine_position, axis=1)
 
     final_df.rename(columns={'return_interval': 'actual_return_interval'}, inplace=True)
@@ -148,7 +134,6 @@ def run_prediction(df: pd.DataFrame, **kwargs):
 
 if __name__ == '__main__':
     # PREDICTION
-    model_f_path = '../models/2014-01-31_2022-12-31_1D_BTC_ReturnIntervalPredictionBitcoinTradingModel_v1.pkl'
     df = load_test_dataset_and_info()
-    df = run_prediction(df=df, model_f_path=model_f_path)
+    df = run_prediction(df=df, model_f_path=TRAINED_MODEL_FILE_NAME)
     df = compose_analysis_dataframe(df)

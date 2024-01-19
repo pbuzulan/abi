@@ -1484,7 +1484,9 @@ def calculate_return(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
     pd.DataFrame: DataFrame with 'return' column added.
     """
-    df['return'] = df['close'].pct_change() * 100  # Calculate daily returns in percentage
+    # df['return'] = df['close'].pct_change() * 100  # Calculate daily returns in percentage
+
+    df['return'] = ((df['close'].shift(-1) - df['close']) / df['close']) * 100
 
     return df
 
@@ -1543,6 +1545,7 @@ def calculate_actual_return_interval(df: pd.DataFrame) -> pd.DataFrame:
     pd.DataFrame: DataFrame with 'actual_return_interval' column added.
     """
     # Directly calculate and apply the categorization function
-    df['return_interval'] = ((df['close'].shift(-1) - df['close']) / df['close'] * 100).apply(_categorize_return_interval)
+    df['return_interval'] = ((df['close'].shift(-1) - df['close']) / df['close'] * 100).apply(
+        _categorize_return_interval)
 
     return df
